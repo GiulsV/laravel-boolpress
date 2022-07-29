@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('guests.home');
+// })->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin', 'HomeController@index')->name('admin');
+// Route::resource('posts', 'Admin\PostController');
 
-Auth::routes();
+Route::middleware('auth')
+   ->namespace('Admin')
+   ->name('admin.')
+   ->prefix('admin')
+   ->group(function () {
+        Route::get('/', 'AdminController@dashboard')->name('dashboard');
+        Route::get('users', 'UserController@index')->name('users.index');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('posts', 'PostController');
+        Route::get('my-posts', 'PostController@myIndex')->name('posts.myIndex');
+        Route::resource('tags', 'TagController');
+   });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get("{any?}", function() {
+    return view("guests.home");
+})->where("any", ".*")->name('home');;
