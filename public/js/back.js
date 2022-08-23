@@ -10546,6 +10546,36 @@ if (eleOverlay) {
   });
 }
 
+var inputTitle = document.getElementById('title');
+
+if (inputTitle) {
+  inputSlug = document.getElementById('slug');
+  inputTitle.addEventListener('focusout', function () {
+    if (!inputSlug.value) {
+      axios('/admin/getslug?title=' + inputTitle.value).then(function (res) {
+        return inputSlug.value = res.data.response;
+      });
+    }
+  });
+}
+
+var inputImage = document.getElementById('image');
+
+if (inputImage) {
+  var elePreview = document.getElementById('preview');
+  inputImage.addEventListener('change', function (event) {
+    var imgPath = event.target.files[0];
+    var reader = new FileReader();
+    reader.addEventListener('load', function () {
+      elePreview.src = reader.result;
+    });
+
+    if (imgPath) {
+      reader.readAsDataURL(imgPath);
+    }
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -10577,7 +10607,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\valen\Documents\Esercizi Boolean\LARAVEL\laravel-boolpress\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! C:\Users\huser\Desktop\boolean\classe64\laravel\classe64-30-boolpress\resources\js\back.js */"./resources/js/back.js");
 
 
 /***/ })

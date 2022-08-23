@@ -5696,12 +5696,12 @@ var render = function render() {
       key: tag.id,
       staticClass: "tag"
     }, [_vm._v("\n            " + _vm._s(tag.name) + "\n        ")]);
-  }), 0), _vm._v(" "), _c("img", {
+  }), 0), _vm._v(" "), _vm.post.image ? _c("img", {
     attrs: {
       src: _vm.post.image,
       alt: _vm.post.title
     }
-  }), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))])]) : _vm._e();
+  }) : _vm._e(), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))])]) : _vm._e();
 };
 
 var staticRenderFns = [];
@@ -27915,8 +27915,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\valen\Documents\Esercizi Boolean\LARAVEL\laravel-boolpress\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\valen\Documents\Esercizi Boolean\LARAVEL\laravel-boolpress\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\huser\Desktop\boolean\classe64\laravel\classe64-30-boolpress\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\huser\Desktop\boolean\classe64\laravel\classe64-30-boolpress\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
