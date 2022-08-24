@@ -44,7 +44,7 @@ class PostSeeder extends Seeder
             // si può fare anche in altri modi
             $number = rand(0, 276);
             if ($number) {
-                $contents = new File(__DIR__ . '/../../storage/app/lorempicsum/005(' . $number . ').jpg');
+                $contents = new File(__DIR__ . '/../../storage/app/lorempicsum/picsum (' . $number . ').jpg');
                 // $tmp_img_url = $faker->image();
                 $post->image = Storage::put('uploads', $contents);
             } else {
